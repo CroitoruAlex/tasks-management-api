@@ -24,4 +24,4 @@ docker-compose up -d
 
 docker exec -it tasks-management-api-app-1 php artisan migrate --seed
 
-
+API available at http://localhost:8000/api
