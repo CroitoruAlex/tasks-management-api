@@ -15,8 +15,8 @@ Composer >= 2.5
 SQLite / MySQL
 
 🛠️ Installation Steps
-git clone https://github.com/yourusername/project-management-api.git
-cd project-management-api
+git clone
+cd tasks-management-api
 
 cp .env.example .env
 
