@@ -18,4 +18,7 @@ SQLite / MySQL
 git clone https://github.com/yourusername/project-management-api.git
 cd project-management-api
 
-composer install
+
+docker-compose up -d
+
+composer inst
