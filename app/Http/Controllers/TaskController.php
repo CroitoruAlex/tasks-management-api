@@ -13,8 +13,9 @@ class TaskController extends Controller
     {
     }
 
+
     /**
-     * GET /api/projects/{project_id}/tasks
+     * Display a paginated list of tasks.
      */
     public function index(Request $request, int $projectId)
     {
@@ -25,7 +26,7 @@ class TaskController extends Controller
     }
 
     /**
-     * GET /api/tasks/{id}
+     * Display a specific task
      */
     public function show(int $id)
     {
@@ -36,7 +37,7 @@ class TaskController extends Controller
     }
 
     /**
-     * POST /api/projects/{project_id}/tasks (Manager only)
+     * Store a newly created task in storage.
      */
     public function store(StoreTaskRequest $request, int $projectId)
     {
@@ -50,7 +51,7 @@ class TaskController extends Controller
     }
 
     /**
-     * PUT /api/tasks/{id} (Manager or Assigned User)
+     * Update the specified task in storage.
      */
     public function update(Request $request, int $id)
     {
@@ -76,7 +77,7 @@ class TaskController extends Controller
     }
 
     /**
-     * DELETE /api/tasks/{id} (Manager only)
+     * Remove the task resource from storage.
      */
     public function destroy(Request $request, int $id)
     {

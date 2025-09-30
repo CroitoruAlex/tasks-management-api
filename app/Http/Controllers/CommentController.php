@@ -26,7 +26,7 @@ class CommentController extends Controller
     }
 
     /**
-     * POST /api/tasks/{task_id}/comments
+     * Store a newly created comment in storage.
      */
     public function store(Request $request, int $taskId)
     {
