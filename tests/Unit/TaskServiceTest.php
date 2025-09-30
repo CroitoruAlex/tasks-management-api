@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\Task;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Project;
@@ -42,7 +43,7 @@ class TaskServiceTest extends TestCase
     /** @test */
     public function it_updates_task_successfully()
     {
-        $task = \App\Models\Task::factory()->create(['title' => 'Old']);
+        $task = Task::factory()->create(['title' => 'Old']);
 
         $updated = $this->service->updateTask($task->id, ['title' => 'New']);
 

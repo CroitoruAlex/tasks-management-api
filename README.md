@@ -1,27 +1,26 @@
-✅ User registration & login (Sanctum)
-✅ Role-based access (admin, manager, user)
-✅ Projects CRUD (Admin only)
-✅ Tasks CRUD (Manager or assigned user)
-✅ Comments (Users only)
-✅ Caching with invalidation
-✅ Queued email notifications (Task assignments)
-✅ Clean architecture with Services, Repositories & FormRequests
-✅ Unit & Feature tests with 85%+ coverage
 
+## 🛠️ Installation
 
-⚙️ Requirements
-PHP >= 8.2
-Composer >= 2.5
-SQLite / MySQL
+Follow these steps to set up the project locally:
 
-🛠️ Installation Steps
-git clone
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/tasks-management-api.git
+
+# 2. Enter the project directory
 cd tasks-management-api
 
+# 3. Copy the environment configuration
 cp .env.example .env
 
+# 4. Start Docker containers
 docker-compose up -d
 
+# 5. Run database migrations and seed initial data
 docker exec -it tasks-management-api-app-1 php artisan migrate --seed
 
-API available at http://localhost:8000/api
+# 6. Run tests
+docker exec -it tasks-management-api-app-1 php artisan test --coverage
+
+# 6. API available at
+http://localhost:8000/api/

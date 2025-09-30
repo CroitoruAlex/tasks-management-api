@@ -36,14 +36,14 @@ class TaskRepository implements TaskRepositoryInterface
         return Task::findOrFail($id);
     }
 
-    public function createForProject(int $projectId, array $data)
+    public function createForProject(int $projectId, array $data): Task
     {
         $data['project_id'] = $projectId;
 
         return Task::create($data);
     }
 
-    public function update(int $id, array $data)
+    public function update(int $id, array $data): Task
     {
         $task = Task::findOrFail($id);
         $task->update($data);

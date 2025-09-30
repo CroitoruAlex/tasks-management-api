@@ -40,17 +40,17 @@ class ProjectRepository implements ProjectRepositoryInterface
         });
     }
 
-    public function findById(int $id)
+    public function findById(int $id): Project
     {
         return Project::findOrFail($id);
     }
 
-    public function create(array $data)
+    public function create(array $data): Project
     {
         return Project::create($data);
     }
 
-    public function update(int $id, array $data)
+    public function update(int $id, array $data): Project
     {
         $project = Project::findOrFail($id);
         $project->update($data);
