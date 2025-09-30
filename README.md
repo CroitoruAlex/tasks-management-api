@@ -18,7 +18,10 @@ SQLite / MySQL
 git clone https://github.com/yourusername/project-management-api.git
 cd project-management-api
 
+cp .env.example .env
 
 docker-compose up -d
 
-composer inst
+docker exec -it tasks-management-api-app-1 php artisan migrate --seed
+
+
