@@ -22,7 +22,7 @@ class TaskTest extends TestCase
             'project_id' => $project->id
         ]);
 
-        $response = $this->actingAs($manager, 'sanctum')->putJson("/api/tasks/{$task}", [
+        $response = $this->actingAs($manager, 'sanctum')->putJson("/api/tasks/{$task->id}", [
             'title' => 'Updated Task Title',
         ]);
 
@@ -50,7 +50,7 @@ class TaskTest extends TestCase
         $project = Project::factory()->create(['created_by' => $manager->id]);
         $task = Task::factory()->create(['project_id' => $project->id]);
 
-        $response = $this->actingAs($manager, 'sanctum')->delete("/api/tasks/{$task}");
+        $response = $this->actingAs($manager, 'sanctum')->delete("/api/tasks/{$task->id}");
 
         $response->assertStatus(200);
     }
@@ -67,7 +67,7 @@ class TaskTest extends TestCase
             'assigned_to' => $user->id,
         ]);
 
-        $response = $this->actingAs($user, 'sanctum')->putJson("/api/tasks/{$task}", [
+        $response = $this->actingAs($user, 'sanctum')->putJson("/api/tasks/{$task->id}", [
             'title' => 'Updated Task Title',
         ]);
 

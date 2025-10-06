@@ -13,7 +13,8 @@ class UpdateTaskRequest extends FormRequest
     {
         $task = $this->route('task');
 
-        return $this->user()?->role !== 'manager' && $this->user()?->id !== $task->assigned_to;
+        return $this->user()?->role === 'manager'
+            || $this->user()?->id === $task->assigned_to;
     }
 
     /**

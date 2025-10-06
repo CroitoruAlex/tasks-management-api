@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Task;
+use App\Pagination;
 use App\Repositories\Interfaces\TaskRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -26,7 +27,7 @@ class TaskRepository implements TaskRepositoryInterface
             $query->where('status', $filters['status']);
         }
 
-        $perPage = $filters['per_page'] ?? 10;
+        $perPage = $filters['per_page'] ?? Pagination::DefaultPerPage->value;
 
         return $query->paginate($perPage);
     }
@@ -36,10 +37,8 @@ class TaskRepository implements TaskRepositoryInterface
         return Task::findOrFail($id);
     }
 
-    public function createForProject(int $projectId, array $data): Task
+    public function createForProject(array $data): Task
     {
-        $data['project_id'] = $projectId;
-
         return Task::create($data);
     }
 

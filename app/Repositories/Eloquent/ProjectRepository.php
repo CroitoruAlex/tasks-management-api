@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Project;
+use App\Pagination;
 use App\Repositories\Interfaces\ProjectRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Cache;
@@ -11,13 +12,13 @@ class ProjectRepository implements ProjectRepositoryInterface
 {
     public function getPaginated(array $filters = []): LengthAwarePaginator
     {
-        $perPage = $filters['per_page'] ?? 10;
+        $perPage = $filters['per_page'] ?? Pagination::DefaultPerPage->value;
         $search = $filters['search'] ?? null;
-        $page = request('page', 1);
+        $page = request('page', Pagination::DefaultPage->value);
 
         $cacheKey = "projects_page_{$page}_per_{$perPage}_search_{$search}";
 
-        return Cache::remember($cacheKey, now()->addMinutes(5), function () use ($filters) {
+        return Cache::remember($cacheKey, now()->addMinutes(5), function () use ($filters, $perPage) {
             $query = Project::query()
                 ->select('id', 'title', 'description', 'start_date', 'end_date', 'created_at')
                 ->latest();
@@ -28,8 +29,6 @@ class ProjectRepository implements ProjectRepositoryInterface
                         ->orWhere('description', 'like', "%{$filters['search']}%");
                 });
             }
-
-            $perPage = $filters['per_page'] ?? 10;
 
             return $query->paginate($perPage);
         });

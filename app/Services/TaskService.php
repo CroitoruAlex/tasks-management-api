@@ -25,7 +25,7 @@ class TaskService
         return $this->repository->findById($id);
     }
 
-    public function createTask(int $projectId, array $data)
+    public function createTask(array $data): Task
     {
         if (!empty($task->assigned_to)) {
             $user = User::find($task->assigned_to);
@@ -35,10 +35,10 @@ class TaskService
             }
         }
 
-        return $this->repository->createForProject($projectId, $data);
+        return $this->repository->createForProject($data);
     }
 
-    public function updateTask(int $id, array $data)
+    public function updateTask(int $id, array $data): Task
     {
         return $this->repository->update($id, $data);
     }

@@ -33,9 +33,10 @@ class TaskServiceTest extends TestCase
             'description' => 'Add authentication endpoint',
             'status' => 'pending',
             'assigned_to' => $user->id,
+            'project_id' => $project->id,
         ];
 
-        $task = $this->service->createTask($project->id, $data);
+        $task = $this->service->createTask($data);
 
         $this->assertEquals($project->id, $task->project_id);
         $this->assertEquals('Implement Login', $task->title);

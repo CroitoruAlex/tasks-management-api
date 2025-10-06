@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Comment;
+use App\Pagination;
 use App\Repositories\Interfaces\CommentRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
@@ -20,7 +21,7 @@ class CommentRepository implements CommentRepositoryInterface
             $query->where('body', 'like', "%{$filters['search']}%");
         }
 
-        $perPage = $filters['per_page'] ?? 10;
+        $perPage = $filters['per_page'] ?? Pagination::DefaultPerPage->value;
 
         return $query->paginate($perPage);
     }
