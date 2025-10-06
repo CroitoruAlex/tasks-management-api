@@ -55,7 +55,7 @@ class ProjectController extends Controller
     /**
      * Update the specified project in storage.
      */
-    public function update(UpdateProjectRequest $request, string $id)
+    public function update(UpdateProjectRequest $request, int $id)
     {
         $validated = $request->validated();
 
@@ -69,7 +69,7 @@ class ProjectController extends Controller
     /**
      * Remove the project resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         $deleted = $this->projectService->deleteProject($id);
 

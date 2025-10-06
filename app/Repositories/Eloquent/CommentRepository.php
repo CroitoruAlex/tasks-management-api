@@ -5,7 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\Comment;
 use App\Pagination;
 use App\Repositories\Interfaces\CommentRepositoryInterface;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CommentRepository implements CommentRepositoryInterface
 {

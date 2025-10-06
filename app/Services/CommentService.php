@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Repositories\Interfaces\CommentRepositoryInterface;
 use App\Models\Comment;
-use \Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CommentService
 {

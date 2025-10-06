@@ -13,7 +13,7 @@ class ProjectTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function user_can_show_a_project()
+    public function user_can_show_a_project(): void
     {
 
         $user = User::factory()->create(['role' => 'user']);
@@ -25,7 +25,7 @@ class ProjectTest extends TestCase
     }
 
     #[Test]
-    public function admin_can_create_project()
+    public function admin_can_create_project(): void
     {
         $admin = User::factory()->create(['role' => 'admin']);
 
@@ -38,7 +38,7 @@ class ProjectTest extends TestCase
     }
 
     #[Test]
-    public function non_admin_cannot_create_project()
+    public function non_admin_cannot_create_project(): void
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -50,7 +50,7 @@ class ProjectTest extends TestCase
     }
 
     #[Test]
-    public function admin_can_update_project()
+    public function admin_can_update_project(): void
     {
         $admin = User::factory()->create(['role' => 'admin']);
         $project = Project::factory()->create();
@@ -64,7 +64,7 @@ class ProjectTest extends TestCase
     }
 
     #[Test]
-    public function non_admin_cannot_update_project()
+    public function non_admin_cannot_update_project(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $project = Project::factory()->create();
@@ -78,7 +78,7 @@ class ProjectTest extends TestCase
     }
 
     #[Test]
-    public function admin_can_delete_project()
+    public function admin_can_delete_project(): void
     {
         $admin = User::factory()->create(['role' => 'admin']);
         $project = Project::factory()->create();
@@ -89,7 +89,7 @@ class ProjectTest extends TestCase
     }
 
     #[Test]
-    public function non_admin_cannot_delete_project()
+    public function non_admin_cannot_delete_project(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $project = Project::factory()->create();

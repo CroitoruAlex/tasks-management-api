@@ -14,7 +14,7 @@ class CommentTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function user_can_add_comment_to_task()
+    public function user_can_add_comment_to_task(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $project = Project::factory()->create(['created_by' => $user->id]);

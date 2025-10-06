@@ -22,7 +22,7 @@ class ProjectServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_creates_a_new_project()
+    public function it_creates_a_new_project(): void
     {
         $admin = User::factory()->create(['role' => 'admin']);
         $this->actingAs($admin);
@@ -39,7 +39,7 @@ class ProjectServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_updates_existing_project()
+    public function it_updates_existing_project(): void
     {
         $project = Project::factory()->create(['title' => 'Old Title']);
 
@@ -49,7 +49,7 @@ class ProjectServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_deletes_a_project()
+    public function it_deletes_a_project(): void
     {
         $project = Project::factory()->create();
 

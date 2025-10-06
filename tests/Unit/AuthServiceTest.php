@@ -22,7 +22,7 @@ class AuthServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_registers_a_user_and_returns_token()
+    public function it_registers_a_user_and_returns_token(): void
     {
         $result = $this->service->register([
             'name' => 'John',
@@ -36,7 +36,7 @@ class AuthServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_logs_in_with_valid_credentials()
+    public function it_logs_in_with_valid_credentials(): void
     {
         $user = User::factory()->create(['password' => bcrypt('secret123')]);
 
@@ -49,7 +49,7 @@ class AuthServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_throws_error_for_invalid_login()
+    public function it_throws_error_for_invalid_login(): void
     {
         $this->expectException(ValidationException::class);
 

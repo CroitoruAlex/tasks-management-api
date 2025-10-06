@@ -25,7 +25,7 @@ class TaskServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_creates_a_task_for_a_project()
+    public function it_creates_a_task_for_a_project(): void
     {
         Notification::fake();
 
@@ -48,7 +48,7 @@ class TaskServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_updates_task_successfully()
+    public function it_updates_task_successfully(): void
     {
         $task = Task::factory()->create(['title' => 'Old']);
 

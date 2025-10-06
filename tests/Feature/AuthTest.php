@@ -12,7 +12,7 @@ class AuthTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function it_registers_a_new_user()
+    public function it_registers_a_new_user(): void
     {
         $response = $this->postJson('/api/register', [
             'name' => 'Alex Croitoru',
@@ -28,7 +28,7 @@ class AuthTest extends TestCase
     }
 
     #[Test]
-    public function it_logs_in_existing_user()
+    public function it_logs_in_existing_user(): void
     {
         $user = User::factory()->create(['password' => bcrypt('secret')]);
 

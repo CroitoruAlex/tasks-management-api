@@ -22,7 +22,7 @@ class CommentServiceTest extends TestCase
     }
 
     #[Test]
-    public function it_creates_a_comment_for_task()
+    public function it_creates_a_comment_for_task(): void
     {
         $user = User::factory()->create();
         $task = Task::factory()->create();

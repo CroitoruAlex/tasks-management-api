@@ -14,7 +14,7 @@ class TaskTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function user_can_list_tasks()
+    public function user_can_list_tasks(): void
     {
         $user = User::factory()->create();
         $manager = User::factory()->create(['role' => 'manager']);
@@ -41,7 +41,7 @@ class TaskTest extends TestCase
     }
 
     #[Test]
-    public function user_can_show_task()
+    public function user_can_show_task(): void
     {
         $user = User::factory()->create();
         $manager = User::factory()->create(['role' => 'manager']);
@@ -59,7 +59,7 @@ class TaskTest extends TestCase
     }
 
     #[Test]
-    public function manager_can_update_task()
+    public function manager_can_update_task(): void
     {
         $manager = User::factory()->create(['role' => 'manager']);
         $project = Project::factory()->create(['created_by' => $manager->id]);
@@ -75,7 +75,7 @@ class TaskTest extends TestCase
     }
 
     #[Test]
-    public function manager_can_create_task()
+    public function manager_can_create_task(): void
     {
         $manager = User::factory()->create(['role' => 'manager']);
         $project = Project::factory()->create(['created_by' => $manager->id]);
@@ -90,7 +90,7 @@ class TaskTest extends TestCase
     }
 
     #[Test]
-    public function user_cannot_create_task()
+    public function user_cannot_create_task(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $manager = User::factory()->create(['role' => 'manager']);
@@ -104,7 +104,7 @@ class TaskTest extends TestCase
     }
 
     #[Test]
-    public function manager_can_destroy_task()
+    public function manager_can_destroy_task(): void
     {
         $manager = User::factory()->create(['role' => 'manager']);
         $project = Project::factory()->create(['created_by' => $manager->id]);
@@ -117,7 +117,7 @@ class TaskTest extends TestCase
 
 
     #[Test]
-    public function assigned_user_can_update_task()
+    public function assigned_user_can_update_task(): void
     {
         $user = User::factory()->create(['role' => 'user']);
         $manager = User::factory()->create(['role' => 'manager']);
@@ -135,7 +135,7 @@ class TaskTest extends TestCase
     }
 
     #[Test]
-    public function non_manager_cannot_destroy_task()
+    public function non_manager_cannot_destroy_task(): void
     {
         $user = User::factory()->create(['role' => 'user']);
 
@@ -146,8 +146,5 @@ class TaskTest extends TestCase
         $response = $this->actingAs($user, 'sanctum')->delete("/api/tasks/{$task}");
 
         $response->assertStatus(403);
-//        $response->assertJson([
-//            'message' => 'Unauthorized',
-//        ]);
     }
 }

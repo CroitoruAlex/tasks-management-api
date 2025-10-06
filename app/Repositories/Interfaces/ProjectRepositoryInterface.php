@@ -2,9 +2,8 @@
 
 namespace App\Repositories\Interfaces;
 
-
 use App\Models\Project;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface ProjectRepositoryInterface
 {
