@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProjectRequest;
 use App\Services\ProjectService;
 use Illuminate\Http\Request;
 
@@ -54,14 +55,9 @@ class ProjectController extends Controller
     /**
      * Update the specified project in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProjectRequest $request, string $id)
     {
-        $validated = $request->validate([
-            'title' => 'sometimes|required|string|max:255',
-            'description' => 'nullable|string',
-            'start_date' => 'nullable|date',
-            'end_date' => 'nullable|date|after_or_equal:start_date',
-        ]);
+        $validated = $request->validated();
 
         $project = $this->projectService->updateProject($id, $validated);
 

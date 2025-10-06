@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,7 +11,7 @@ class AuthTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function it_registers_a_new_user()
     {
         $response = $this->postJson('/api/register', [
@@ -26,7 +27,7 @@ class AuthTest extends TestCase
             ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_logs_in_existing_user()
     {
         $user = User::factory()->create(['password' => bcrypt('secret')]);

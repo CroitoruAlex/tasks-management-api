@@ -13,14 +13,13 @@ class ProjectRepository implements ProjectRepositoryInterface
     {
         $perPage = $filters['per_page'] ?? 10;
         $search = $filters['search'] ?? null;
-        $status = $filters['status'] ?? null;
         $page = request('page', 1);
 
-        $cacheKey = "projects_page_{$page}_per_{$perPage}_search_{$search}_status_{$status}";
+        $cacheKey = "projects_page_{$page}_per_{$perPage}_search_{$search}";
 
         return Cache::remember($cacheKey, now()->addMinutes(5), function () use ($filters) {
             $query = Project::query()
-                ->select('id', 'title', 'description', 'status', 'start_date', 'end_date', 'created_at')
+                ->select('id', 'title', 'description', 'start_date', 'end_date', 'created_at')
                 ->latest();
 
             if (!empty($filters['search'])) {
@@ -28,10 +27,6 @@ class ProjectRepository implements ProjectRepositoryInterface
                     $q->where('title', 'like', "%{$filters['search']}%")
                         ->orWhere('description', 'like', "%{$filters['search']}%");
                 });
-            }
-
-            if (!empty($filters['status'])) {
-                $query->where('status', $filters['status']);
             }
 
             $perPage = $filters['per_page'] ?? 10;

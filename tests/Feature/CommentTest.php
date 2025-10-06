@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Task;
@@ -12,7 +13,7 @@ class CommentTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function user_can_add_comment_to_task()
     {
         $user = User::factory()->create(['role' => 'user']);

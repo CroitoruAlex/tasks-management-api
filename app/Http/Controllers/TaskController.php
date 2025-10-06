@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
+use App\Models\Task;
 use App\Services\TaskService;
 use Illuminate\Http\Request;
 
@@ -53,23 +55,11 @@ class TaskController extends Controller
     /**
      * Update the specified task in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(UpdateTaskRequest $request, Task $task)
     {
-        $user = $request->user();
-        $task = $this->taskService->findTask($id);
+        $validated = $request->validated();
 
-        if ($user->role !== 'manager' && $user->id !== $task->assigned_to) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        $validated = $request->validate([
-            'title' => 'sometimes|string|max:255',
-            'description' => 'nullable|string',
-            'status' => 'nullable|string',
-            'due_date' => 'nullable|date',
-        ]);
-
-        $updated = $this->taskService->updateTask($id, $validated);
+        $updated = $this->taskService->updateTask($task->id, $validated);
 
         return response()->json([
             'task' => $updated,

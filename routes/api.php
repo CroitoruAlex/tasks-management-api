@@ -26,17 +26,17 @@ Route::middleware(['auth:sanctum', 'log.activity'])->group(function () {
 
 
     #Tasks
-    Route::get('/projects/{project_id}/tasks', [TaskController::class, 'index']);
+    Route::get('/projects/{id}/tasks', [TaskController::class, 'index']);
     Route::get('/tasks/{id}', [TaskController::class, 'show']);
 
     #Tasks - manager only
     Route::middleware('role:manager')->group(function () {
-        Route::post('/projects/{project_id}/tasks', [TaskController::class, 'store']);
+        Route::post('/projects/{id}/tasks', [TaskController::class, 'store']);
         Route::delete('/tasks/{id}', [TaskController::class, 'destroy']);
     });
 
     // Manager or assigned user
-    Route::put('/tasks/{id}', [TaskController::class, 'update']);
+    Route::put('/tasks/{task}', [TaskController::class, 'update']);
 
 
     Route::get('/tasks/{task}/comments', [CommentController::class, 'index']);

@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Project;
@@ -20,7 +21,7 @@ class ProjectServiceTest extends TestCase
         $this->service = app(ProjectService::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_creates_a_new_project()
     {
         $admin = User::factory()->create(['role' => 'admin']);
@@ -37,7 +38,7 @@ class ProjectServiceTest extends TestCase
         $this->assertEquals($admin->id, $project->created_by);
     }
 
-    /** @test */
+    #[Test]
     public function it_updates_existing_project()
     {
         $project = Project::factory()->create(['title' => 'Old Title']);

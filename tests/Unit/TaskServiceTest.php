@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\Task;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Project;
@@ -21,7 +22,7 @@ class TaskServiceTest extends TestCase
         $this->service = app(TaskService::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_creates_a_task_for_a_project()
     {
         $project = Project::factory()->create();
@@ -40,7 +41,7 @@ class TaskServiceTest extends TestCase
         $this->assertEquals('Implement Login', $task->title);
     }
 
-    /** @test */
+    #[Test]
     public function it_updates_task_successfully()
     {
         $task = Task::factory()->create(['title' => 'Old']);

@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Task;
@@ -20,7 +21,7 @@ class CommentServiceTest extends TestCase
         $this->service = app(CommentService::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_creates_a_comment_for_task()
     {
         $user = User::factory()->create();

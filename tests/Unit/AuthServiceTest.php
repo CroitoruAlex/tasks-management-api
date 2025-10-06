@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
 use App\Services\AuthService;
@@ -20,7 +21,7 @@ class AuthServiceTest extends TestCase
         $this->service = app(AuthService::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_registers_a_user_and_returns_token()
     {
         $result = $this->service->register([
@@ -34,7 +35,7 @@ class AuthServiceTest extends TestCase
         $this->assertEquals('john@example.com', $result['user']->email);
     }
 
-    /** @test */
+    #[Test]
     public function it_logs_in_with_valid_credentials()
     {
         $user = User::factory()->create(['password' => bcrypt('secret123')]);
@@ -47,7 +48,7 @@ class AuthServiceTest extends TestCase
         $this->assertArrayHasKey('token', $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_throws_error_for_invalid_login()
     {
         $this->expectException(ValidationException::class);
