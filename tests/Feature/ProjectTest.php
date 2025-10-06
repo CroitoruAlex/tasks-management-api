@@ -13,6 +13,18 @@ class ProjectTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
+    public function user_can_show_a_project()
+    {
+
+        $user = User::factory()->create(['role' => 'user']);
+        $project = Project::factory()->create();
+
+        $response = $this->actingAs($user, 'sanctum')->get('/api/projects/' . $project->id);
+
+        $response->assertStatus(200);
+    }
+
+    #[Test]
     public function admin_can_create_project()
     {
         $admin = User::factory()->create(['role' => 'admin']);
@@ -35,6 +47,20 @@ class ProjectTest extends TestCase
         ]);
 
         $response->assertStatus(403);
+    }
+
+    #[Test]
+    public function admin_can_update_project()
+    {
+        $admin = User::factory()->create(['role' => 'admin']);
+        $project = Project::factory()->create();
+
+        $response = $this->actingAs($admin, 'sanctum')->putJson('/api/projects/' . $project->id, [
+            'title' => 'Update Project Title',
+            'description' => 'Update Project Description',
+        ]);
+
+        $response->assertStatus(200);
     }
 
     #[Test]

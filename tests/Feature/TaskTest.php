@@ -14,6 +14,51 @@ class TaskTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
+    public function user_can_list_tasks()
+    {
+        $user = User::factory()->create();
+        $manager = User::factory()->create(['role' => 'manager']);
+        $project = Project::factory()->create(['created_by' => $manager->id]);
+        $task = Task::factory()->create([
+            'project_id' => $project->id
+        ]);
+
+        $response = $this->actingAs($user, 'sanctum')->get("/api/projects/$project->id/tasks");
+
+        $response->assertStatus(200)
+            ->assertJsonStructure([
+                'data',
+                'pagination' => [
+                    'total',
+                    'per_page',
+                    'current_page',
+                    'last_page',
+                ],
+                'timestamp',
+                'execution_time',
+            ]);
+
+    }
+
+    #[Test]
+    public function user_can_show_task()
+    {
+        $user = User::factory()->create();
+        $manager = User::factory()->create(['role' => 'manager']);
+        $project = Project::factory()->create(['created_by' => $manager->id]);
+        $task = Task::factory()->create([
+            'project_id' => $project->id
+        ]);
+
+        $response = $this->actingAs($user, 'sanctum')->get("/api/tasks/{$task->id}");
+
+        $response->assertStatus(200)
+            ->assertJson([
+            'task' => $task->toArray(),
+        ]);
+    }
+
+    #[Test]
     public function manager_can_update_task()
     {
         $manager = User::factory()->create(['role' => 'manager']);
@@ -27,6 +72,21 @@ class TaskTest extends TestCase
         ]);
 
         $response->assertStatus(200);
+    }
+
+    #[Test]
+    public function manager_can_create_task()
+    {
+        $manager = User::factory()->create(['role' => 'manager']);
+        $project = Project::factory()->create(['created_by' => $manager->id]);
+        $user = User::factory()->create(['role' => 'user']);
+
+        $response = $this->actingAs($manager, 'sanctum')->postJson("/api/projects/$project->id/tasks", [
+            'title' => 'New Task Title',
+            'assigned_to' => $user->id,
+        ]);
+
+        $response->assertStatus(201);
     }
 
     #[Test]
@@ -86,5 +146,8 @@ class TaskTest extends TestCase
         $response = $this->actingAs($user, 'sanctum')->delete("/api/tasks/{$task}");
 
         $response->assertStatus(403);
+//        $response->assertJson([
+//            'message' => 'Unauthorized',
+//        ]);
     }
 }

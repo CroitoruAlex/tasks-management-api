@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/var/www/html/app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Requests/BaseApiRequest.php.html#9">App\Http\Requests\BaseApiRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Comment.php.html#10">App\Models\Comment</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Project.php.html#11">App\Models\Project</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Task.php.html#11">App\Models\Task</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#12">App\Models\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Eloquent/CommentRepository.php.html#10">App\Repositories\Eloquent\CommentRepository</a></td><td class="text-right">18%</td></tr>
+       <tr><td><a href="Repositories/Eloquent/ProjectRepository.php.html#11">App\Repositories\Eloquent\ProjectRepository</a></td><td class="text-right">31%</td></tr>
+       <tr><td><a href="Rules/ValidTaskAssignee.php.html#8">App\Rules\ValidTaskAssignee</a></td><td class="text-right">44%</td></tr>
+       <tr><td><a href="Services/CommentService.php.html#9">App\Services\CommentService</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Controllers/CommentController.php.html#9">App\Http\Controllers\CommentController</a></td><td class="text-right">72%</td></tr>
+       <tr><td><a href="Repositories/Eloquent/TaskRepository.php.html#10">App\Repositories\Eloquent\TaskRepository</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#9">App\Http\Controllers\AuthController</a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Http/Controllers/ProjectController.php.html#9">App\Http\Controllers\ProjectController</a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Repositories/Eloquent/ProjectRepository.php.html#11">App\Repositories\Eloquent\ProjectRepository</a></td><td class="text-right">17</td></tr>
+       <tr><td><a href="Repositories/Eloquent/CommentRepository.php.html#10">App\Repositories\Eloquent\CommentRepository</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Repositories/Eloquent/TaskRepository.php.html#10">App\Repositories\Eloquent\TaskRepository</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Http/Controllers/ProjectController.php.html#9">App\Http\Controllers\ProjectController</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Rules/ValidTaskAssignee.php.html#8">App\Rules\ValidTaskAssignee</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/CommentController.php.html#9">App\Http\Controllers\CommentController</a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#51"><abbr title="App\Http\Controllers\AuthController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#63"><abbr title="App\Http\Controllers\AuthController::me">me</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/CommentController.php.html#18"><abbr title="App\Http\Controllers\CommentController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ProjectController.php.html#18"><abbr title="App\Http\Controllers\ProjectController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/BaseApiRequest.php.html#14"><abbr title="App\Http\Requests\BaseApiRequest::failedValidation">failedValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Comment.php.html#23"><abbr title="App\Models\Comment::task">task</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Comment.php.html#28"><abbr title="App\Models\Comment::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Project.php.html#34"><abbr title="App\Models\Project::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Project.php.html#39"><abbr title="App\Models\Project::tasks">tasks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Task.php.html#34"><abbr title="App\Models\Task::project">project</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Task.php.html#39"><abbr title="App\Models\Task::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Task.php.html#44"><abbr title="App\Models\Task::comments">comments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Task.php.html#49"><abbr title="App\Models\Task::isPending">isPending</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Task.php.html#54"><abbr title="App\Models\Task::isInProgress">isInProgress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Task.php.html#59"><abbr title="App\Models\Task::isDone">isDone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#42"><abbr title="App\Models\User::projects">projects</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#47"><abbr title="App\Models\User::tasks">tasks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#52"><abbr title="App\Models\User::comments">comments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#57"><abbr title="App\Models\User::isAdmin">isAdmin</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#62"><abbr title="App\Models\User::isManager">isManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Eloquent/CommentRepository.php.html#12"><abbr title="App\Repositories\Eloquent\CommentRepository::getByTask">getByTask</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Eloquent/ProjectRepository.php.html#13"><abbr title="App\Repositories\Eloquent\ProjectRepository::getPaginated">getPaginated</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rules/ValidTaskAssignee.php.html#33"><abbr title="App\Rules\ValidTaskAssignee::message">message</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/AuthService.php.html#47"><abbr title="App\Services\AuthService::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/CommentService.php.html#15"><abbr title="App\Services\CommentService::listByTask">listByTask</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/ProjectService.php.html#16"><abbr title="App\Services\ProjectService::listProjects">listProjects</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rules/ValidTaskAssignee.php.html#13"><abbr title="App\Rules\ValidTaskAssignee::passes">passes</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Repositories/Eloquent/TaskRepository.php.html#12"><abbr title="App\Repositories\Eloquent\TaskRepository::getByProject">getByProject</abbr></a></td><td class="text-right">61%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Repositories/Eloquent/CommentRepository.php.html#12"><abbr title="App\Repositories\Eloquent\CommentRepository::getByTask">getByTask</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repositories/Eloquent/ProjectRepository.php.html#13"><abbr title="App\Repositories\Eloquent\ProjectRepository::getPaginated">getPaginated</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Rules/ValidTaskAssignee.php.html#13"><abbr title="App\Rules\ValidTaskAssignee::passes">passes</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Repositories/Eloquent/TaskRepository.php.html#12"><abbr title="App\Repositories\Eloquent\TaskRepository::getByProject">getByProject</abbr></a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.11</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.29</a> and <a href="https://phpunit.de/">PHPUnit 11.5.42</a> at Mon Oct 6 9:11:41 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([5,0,1,0,1,1,0,1,3,1,2,12], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([26,0,0,0,0,0,1,1,0,0,1,61], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[77.27272727272727,5,"<a href=\"Http\/Controllers\/AuthController.php.html#9\">App\\Http\\Controllers\\AuthController<\/a>"],[72.22222222222221,5,"<a href=\"Http\/Controllers\/CommentController.php.html#9\">App\\Http\\Controllers\\CommentController<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Controller.php.html#7\">App\\Http\\Controllers\\Controller<\/a>"],[88.88888888888889,7,"<a href=\"Http\/Controllers\/ProjectController.php.html#9\">App\\Http\\Controllers\\ProjectController<\/a>"],[100,7,"<a href=\"Http\/Controllers\/TaskController.php.html#11\">App\\Http\\Controllers\\TaskController<\/a>"],[100,1,"<a href=\"Http\/Middleware\/LogUserActivity.php.html#10\">App\\Http\\Middleware\\LogUserActivity<\/a>"],[100,3,"<a href=\"Http\/Middleware\/RoleMiddleware.php.html#9\">App\\Http\\Middleware\\RoleMiddleware<\/a>"],[0,1,"<a href=\"Http\/Requests\/BaseApiRequest.php.html#9\">App\\Http\\Requests\\BaseApiRequest<\/a>"],[100,3,"<a href=\"Http\/Requests\/RegisterRequest.php.html#5\">App\\Http\\Requests\\RegisterRequest<\/a>"],[100,3,"<a href=\"Http\/Requests\/StoreTaskRequest.php.html#7\">App\\Http\\Requests\\StoreTaskRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/UpdateProjectRequest.php.html#7\">App\\Http\\Requests\\UpdateProjectRequest<\/a>"],[100,3,"<a href=\"Http\/Requests\/UpdateTaskRequest.php.html#7\">App\\Http\\Requests\\UpdateTaskRequest<\/a>"],[0,2,"<a href=\"Models\/Comment.php.html#10\">App\\Models\\Comment<\/a>"],[0,2,"<a href=\"Models\/Project.php.html#11\">App\\Models\\Project<\/a>"],[0,6,"<a href=\"Models\/Task.php.html#11\">App\\Models\\Task<\/a>"],[0,5,"<a href=\"Models\/User.php.html#12\">App\\Models\\User<\/a>"],[100,3,"<a href=\"Notifications\/TaskAssignedNotification.php.html#11\">App\\Notifications\\TaskAssignedNotification<\/a>"],[100,2,"<a href=\"Providers\/AppServiceProvider.php.html#15\">App\\Providers\\AppServiceProvider<\/a>"],[100,3,"<a href=\"Repositories\/Eloquent\/AuthRepository.php.html#9\">App\\Repositories\\Eloquent\\AuthRepository<\/a>"],[18.181818181818183,3,"<a href=\"Repositories\/Eloquent\/CommentRepository.php.html#10\">App\\Repositories\\Eloquent\\CommentRepository<\/a>"],[31.818181818181817,6,"<a href=\"Repositories\/Eloquent\/ProjectRepository.php.html#11\">App\\Repositories\\Eloquent\\ProjectRepository<\/a>"],[75,7,"<a href=\"Repositories\/Eloquent\/TaskRepository.php.html#10\">App\\Repositories\\Eloquent\\TaskRepository<\/a>"],[44.44444444444444,4,"<a href=\"Rules\/ValidTaskAssignee.php.html#8\">App\\Rules\\ValidTaskAssignee<\/a>"],[94.73684210526315,6,"<a href=\"Services\/AuthService.php.html#10\">App\\Services\\AuthService<\/a>"],[66.66666666666666,3,"<a href=\"Services\/CommentService.php.html#9\">App\\Services\\CommentService<\/a>"],[92.3076923076923,6,"<a href=\"Services\/ProjectService.php.html#10\">App\\Services\\ProjectService<\/a>"],[100,8,"<a href=\"Services\/TaskService.php.html#12\">App\\Services\\TaskService<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Http\/Controllers\/AuthController.php.html#11\">App\\Http\\Controllers\\AuthController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/AuthController.php.html#18\">App\\Http\\Controllers\\AuthController::register<\/a>"],[100,1,"<a href=\"Http\/Controllers\/AuthController.php.html#32\">App\\Http\\Controllers\\AuthController::login<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AuthController.php.html#51\">App\\Http\\Controllers\\AuthController::logout<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AuthController.php.html#63\">App\\Http\\Controllers\\AuthController::me<\/a>"],[100,1,"<a href=\"Http\/Controllers\/CommentController.php.html#11\">App\\Http\\Controllers\\CommentController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/CommentController.php.html#18\">App\\Http\\Controllers\\CommentController::index<\/a>"],[92.3076923076923,3,"<a href=\"Http\/Controllers\/CommentController.php.html#31\">App\\Http\\Controllers\\CommentController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Controller.php.html#12\">App\\Http\\Controllers\\Controller::jsonResponseWithPagination<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ProjectController.php.html#11\">App\\Http\\Controllers\\ProjectController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ProjectController.php.html#18\">App\\Http\\Controllers\\ProjectController::index<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ProjectController.php.html#29\">App\\Http\\Controllers\\ProjectController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ProjectController.php.html#46\">App\\Http\\Controllers\\ProjectController::show<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ProjectController.php.html#58\">App\\Http\\Controllers\\ProjectController::update<\/a>"],[100,2,"<a href=\"Http\/Controllers\/ProjectController.php.html#72\">App\\Http\\Controllers\\ProjectController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/TaskController.php.html#14\">App\\Http\\Controllers\\TaskController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/TaskController.php.html#22\">App\\Http\\Controllers\\TaskController::index<\/a>"],[100,1,"<a href=\"Http\/Controllers\/TaskController.php.html#33\">App\\Http\\Controllers\\TaskController::show<\/a>"],[100,1,"<a href=\"Http\/Controllers\/TaskController.php.html#44\">App\\Http\\Controllers\\TaskController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/TaskController.php.html#59\">App\\Http\\Controllers\\TaskController::update<\/a>"],[100,2,"<a href=\"Http\/Controllers\/TaskController.php.html#73\">App\\Http\\Controllers\\TaskController::destroy<\/a>"],[100,1,"<a href=\"Http\/Middleware\/LogUserActivity.php.html#17\">App\\Http\\Middleware\\LogUserActivity::handle<\/a>"],[100,3,"<a href=\"Http\/Middleware\/RoleMiddleware.php.html#16\">App\\Http\\Middleware\\RoleMiddleware::handle<\/a>"],[0,1,"<a href=\"Http\/Requests\/BaseApiRequest.php.html#14\">App\\Http\\Requests\\BaseApiRequest::failedValidation<\/a>"],[100,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#10\">App\\Http\\Requests\\RegisterRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#18\">App\\Http\\Requests\\RegisterRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#32\">App\\Http\\Requests\\RegisterRequest::messages<\/a>"],[100,1,"<a href=\"Http\/Requests\/StoreTaskRequest.php.html#12\">App\\Http\\Requests\\StoreTaskRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/StoreTaskRequest.php.html#20\">App\\Http\\Requests\\StoreTaskRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/StoreTaskRequest.php.html#34\">App\\Http\\Requests\\StoreTaskRequest::messages<\/a>"],[100,1,"<a href=\"Http\/Requests\/UpdateProjectRequest.php.html#12\">App\\Http\\Requests\\UpdateProjectRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/UpdateProjectRequest.php.html#20\">App\\Http\\Requests\\UpdateProjectRequest::rules<\/a>"],[100,2,"<a href=\"Http\/Requests\/UpdateTaskRequest.php.html#12\">App\\Http\\Requests\\UpdateTaskRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/UpdateTaskRequest.php.html#24\">App\\Http\\Requests\\UpdateTaskRequest::rules<\/a>"],[0,1,"<a href=\"Models\/Comment.php.html#23\">App\\Models\\Comment::task<\/a>"],[0,1,"<a href=\"Models\/Comment.php.html#28\">App\\Models\\Comment::user<\/a>"],[0,1,"<a href=\"Models\/Project.php.html#34\">App\\Models\\Project::user<\/a>"],[0,1,"<a href=\"Models\/Project.php.html#39\">App\\Models\\Project::tasks<\/a>"],[0,1,"<a href=\"Models\/Task.php.html#34\">App\\Models\\Task::project<\/a>"],[0,1,"<a href=\"Models\/Task.php.html#39\">App\\Models\\Task::user<\/a>"],[0,1,"<a href=\"Models\/Task.php.html#44\">App\\Models\\Task::comments<\/a>"],[0,1,"<a href=\"Models\/Task.php.html#49\">App\\Models\\Task::isPending<\/a>"],[0,1,"<a href=\"Models\/Task.php.html#54\">App\\Models\\Task::isInProgress<\/a>"],[0,1,"<a href=\"Models\/Task.php.html#59\">App\\Models\\Task::isDone<\/a>"],[0,1,"<a href=\"Models\/User.php.html#42\">App\\Models\\User::projects<\/a>"],[0,1,"<a href=\"Models\/User.php.html#47\">App\\Models\\User::tasks<\/a>"],[0,1,"<a href=\"Models\/User.php.html#52\">App\\Models\\User::comments<\/a>"],[0,1,"<a href=\"Models\/User.php.html#57\">App\\Models\\User::isAdmin<\/a>"],[0,1,"<a href=\"Models\/User.php.html#62\">App\\Models\\User::isManager<\/a>"],[100,1,"<a href=\"Notifications\/TaskAssignedNotification.php.html#17\">App\\Notifications\\TaskAssignedNotification::__construct<\/a>"],[100,1,"<a href=\"Notifications\/TaskAssignedNotification.php.html#22\">App\\Notifications\\TaskAssignedNotification::via<\/a>"],[100,1,"<a href=\"Notifications\/TaskAssignedNotification.php.html#27\">App\\Notifications\\TaskAssignedNotification::toMail<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#20\">App\\Providers\\AppServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#31\">App\\Providers\\AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/AuthRepository.php.html#11\">App\\Repositories\\Eloquent\\AuthRepository::register<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/AuthRepository.php.html#22\">App\\Repositories\\Eloquent\\AuthRepository::findByEmail<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/AuthRepository.php.html#27\">App\\Repositories\\Eloquent\\AuthRepository::revokeTokens<\/a>"],[0,2,"<a href=\"Repositories\/Eloquent\/CommentRepository.php.html#12\">App\\Repositories\\Eloquent\\CommentRepository::getByTask<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/CommentRepository.php.html#29\">App\\Repositories\\Eloquent\\CommentRepository::createForTask<\/a>"],[0,2,"<a href=\"Repositories\/Eloquent\/ProjectRepository.php.html#13\">App\\Repositories\\Eloquent\\ProjectRepository::getPaginated<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/ProjectRepository.php.html#37\">App\\Repositories\\Eloquent\\ProjectRepository::findById<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/ProjectRepository.php.html#42\">App\\Repositories\\Eloquent\\ProjectRepository::create<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/ProjectRepository.php.html#47\">App\\Repositories\\Eloquent\\ProjectRepository::update<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/ProjectRepository.php.html#55\">App\\Repositories\\Eloquent\\ProjectRepository::delete<\/a>"],[61.53846153846154,3,"<a href=\"Repositories\/Eloquent\/TaskRepository.php.html#12\">App\\Repositories\\Eloquent\\TaskRepository::getByProject<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/TaskRepository.php.html#35\">App\\Repositories\\Eloquent\\TaskRepository::findById<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/TaskRepository.php.html#40\">App\\Repositories\\Eloquent\\TaskRepository::createForProject<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/TaskRepository.php.html#45\">App\\Repositories\\Eloquent\\TaskRepository::update<\/a>"],[100,1,"<a href=\"Repositories\/Eloquent\/TaskRepository.php.html#53\">App\\Repositories\\Eloquent\\TaskRepository::delete<\/a>"],[50,3,"<a href=\"Rules\/ValidTaskAssignee.php.html#13\">App\\Rules\\ValidTaskAssignee::passes<\/a>"],[0,1,"<a href=\"Rules\/ValidTaskAssignee.php.html#33\">App\\Rules\\ValidTaskAssignee::message<\/a>"],[100,1,"<a href=\"Services\/AuthService.php.html#12\">App\\Services\\AuthService::__construct<\/a>"],[100,1,"<a href=\"Services\/AuthService.php.html#16\">App\\Services\\AuthService::register<\/a>"],[100,3,"<a href=\"Services\/AuthService.php.html#27\">App\\Services\\AuthService::login<\/a>"],[0,1,"<a href=\"Services\/AuthService.php.html#47\">App\\Services\\AuthService::logout<\/a>"],[100,1,"<a href=\"Services\/CommentService.php.html#11\">App\\Services\\CommentService::__construct<\/a>"],[0,1,"<a href=\"Services\/CommentService.php.html#15\">App\\Services\\CommentService::listByTask<\/a>"],[100,1,"<a href=\"Services\/CommentService.php.html#20\">App\\Services\\CommentService::addComment<\/a>"],[100,1,"<a href=\"Services\/ProjectService.php.html#12\">App\\Services\\ProjectService::__construct<\/a>"],[0,1,"<a href=\"Services\/ProjectService.php.html#16\">App\\Services\\ProjectService::listProjects<\/a>"],[100,1,"<a href=\"Services\/ProjectService.php.html#21\">App\\Services\\ProjectService::createProject<\/a>"],[100,1,"<a href=\"Services\/ProjectService.php.html#31\">App\\Services\\ProjectService::updateProject<\/a>"],[100,1,"<a href=\"Services\/ProjectService.php.html#39\">App\\Services\\ProjectService::deleteProject<\/a>"],[100,1,"<a href=\"Services\/ProjectService.php.html#47\">App\\Services\\ProjectService::findProject<\/a>"],[100,1,"<a href=\"Services\/TaskService.php.html#14\">App\\Services\\TaskService::__construct<\/a>"],[100,1,"<a href=\"Services\/TaskService.php.html#18\">App\\Services\\TaskService::listByProject<\/a>"],[100,1,"<a href=\"Services\/TaskService.php.html#23\">App\\Services\\TaskService::findTask<\/a>"],[100,3,"<a href=\"Services\/TaskService.php.html#28\">App\\Services\\TaskService::createTask<\/a>"],[100,1,"<a href=\"Services\/TaskService.php.html#43\">App\\Services\\TaskService::updateTask<\/a>"],[100,1,"<a href=\"Services\/TaskService.php.html#48\">App\\Services\\TaskService::deleteTask<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

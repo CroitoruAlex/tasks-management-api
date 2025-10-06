@@ -3,6 +3,8 @@
 namespace Tests\Unit;
 
 use App\Models\Task;
+use App\Notifications\TaskAssignedNotification;
+use Illuminate\Support\Facades\Notification;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\User;
@@ -25,6 +27,8 @@ class TaskServiceTest extends TestCase
     #[Test]
     public function it_creates_a_task_for_a_project()
     {
+        Notification::fake();
+
         $project = Project::factory()->create();
         $user = User::factory()->create();
 
@@ -39,6 +43,7 @@ class TaskServiceTest extends TestCase
         $task = $this->service->createTask($data);
 
         $this->assertEquals($project->id, $task->project_id);
+        Notification::assertSentTo($user, TaskAssignedNotification::class);
         $this->assertEquals('Implement Login', $task->title);
     }
 

@@ -72,10 +72,6 @@ class TaskController extends Controller
      */
     public function destroy(Request $request, int $id)
     {
-        if ($request->user()->role !== 'manager') {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
         $deleted = $this->taskService->deleteTask($id);
 
         return response()->json([
