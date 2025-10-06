@@ -23,7 +23,7 @@ class ProjectService
         $data['created_by'] = auth()->id();
 
         $project = $this->repository->create($data);
-        Cache::flush(); // would be bad in production because it invalidates unrelated data
+        Cache::increment('projects_version');
 
         return $project;
     }
@@ -31,7 +31,7 @@ class ProjectService
     public function updateProject(int $id, array $data): Project
     {
         $project = $this->repository->update($id, $data);
-        Cache::flush();
+        Cache::increment('projects_version');
 
         return $project;
     }
@@ -39,7 +39,7 @@ class ProjectService
     public function deleteProject(int $id): bool
     {
         $deleted = $this->repository->delete($id);
-        Cache::flush();
+        Cache::increment('projects_version');
 
         return $deleted;
     }

@@ -16,7 +16,11 @@ class ProjectRepository implements ProjectRepositoryInterface
         $search = $filters['search'] ?? null;
         $page = request('page', Pagination::DefaultPage->value);
 
-        $cacheKey = "projects_page_{$page}_per_{$perPage}_search_{$search}";
+        $version = Cache::get('projects_version', 1);
+
+        //not great, not terrible because on every small update the cache would be invalidated and missed
+        //there are multiple caching strategies but depends a lot on what business wants
+        $cacheKey = "projects_v{$version}_page_{$page}_per_{$perPage}_search_{$search}";
 
         return Cache::remember($cacheKey, now()->addMinutes(5), function () use ($filters, $perPage) {
             $query = Project::query()
