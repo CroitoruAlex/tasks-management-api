@@ -1,3 +1,12 @@
+## 🔒 Authorization Highlights 
+
+ - Admin users can manage all projects.
+ - Managers can create and delete tasks, and update any assigned to them.
+ - Assigned users can update their own tasks but not others’.
+ - All authenticated users can view projects, tasks, and add comments.
+
+## Coverage Summary
+ - Overall coverage: 80%+
 
 ## 🛠️ Installation
 
@@ -19,8 +28,11 @@ docker-compose up -d
 # 5. Run database migrations and seed initial data
 docker exec -it tasks-management-api-app-1 php artisan migrate --seed
 
-# 6. Run tests
+# 6. Run phpstan
+docker exec -it tasks-management-api-app-1 vendor/bin/phpstan analyse app tests
+
+# 7. Run tests
 docker exec -it tasks-management-api-app-1 php artisan test --coverage
 
-# 6. API available at
+# 8. API available at
 http://localhost:8000/api/
